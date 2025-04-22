@@ -5,10 +5,13 @@ import java.util.Map;
 
 public class DataRepository {
 
-    public Map<, String> getData() {
-        Map<Integer, > map = new HashMap<>();
-
+    public Map<Integer, String> getData() {
+        Map<Integer, String> map = new HashMap<>();
+        // Додайте дані до карти
+        map.put(387, "Lucy");
+        map.put(231, "Alice");
+        map.put(394, "Bob");
+        map.put(172, "Tom");
         return map;
     }
 }
-

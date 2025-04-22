@@ -5,24 +5,29 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class DataHandler {
 
-    Map<Integer> map = new DataRepository();
+    Map<Integer, String> map;
+
+    public DataHandler() {
+        DataRepository repository = new DataRepository();
+        this.map = repository.getData();
+    }
 
     // Метод формує виведення нумерованого переліку імен
     public String getAll() {
         StringBuilder sb = new StringBuilder();
         AtomicInteger count = new AtomicInteger(0);
         map.forEach((id, name) ->
-                sb.append(.format("%d) %d, %s%n",
-                        count.incrementAndGet(),id, name)
-        ));
-        return "\\nALL NAMES:\\n" + sb;
+                sb.append(String.format("%d) %d, %s%n",
+                        count.incrementAndGet(), id, name))
+        );
+        return "\nALL NAMES:\n" + sb.toString();
     }
 
     // Метод формує виведення імені за певним id
-    public String getById(int ) {
-        if (coKey(id)) {
-            return "\\nNAME: id " + id + ", " +
-                    map.(id);
+    public String getById(int id) {
+        if (map.containsKey(id)) {
+            return "\nNAME: id " + id + ", " +
+                    map.get(id);
         } else return "No data!";
     }
 }
